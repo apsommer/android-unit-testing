@@ -36,12 +36,9 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     private static final String TAG = "CalculatorActivity";
-
     private Calculator mCalculator;
-
     private EditText mOperandOneEditText;
     private EditText mOperandTwoEditText;
-
     private TextView mResultTextView;
 
     @Override
