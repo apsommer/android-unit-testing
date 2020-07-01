@@ -32,7 +32,7 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Summary:
- * 
+ *
  * Local unit tests use the JVM of your local machine. They don't use the Android framework.
  * Unit tests are written with JUnit, a common unit testing framework for Java.
  * JUnit tests are located in the (test) folder in the Android Studio Project > Android pane.
@@ -58,7 +58,7 @@ public class CalculatorTest {
     /**
      * Set up the environment for testing
      */
-    @Before // Before and setUp are used together to prepare the environment prior to test execution
+    @Before // Before prepares the environment prior to test execution
     public void setUp() {
 
         // instantiate/initialize/assign a Calculator
