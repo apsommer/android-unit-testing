@@ -83,4 +83,32 @@ public class CalculatorTest {
         // due to precision errors in they type conversion an error delta is required with closeTo()
         assertThat(resultAdd, is(closeTo(2.222d, 0.01d)));
     }
+
+    // continue with assertion tests for the other Calculator instance methods
+
+    @Test
+    public void subTwoNumbers() {
+        double resultSub = mCalculator.sub(1d, 1d);
+        assertThat(resultSub, is(equalTo(0d)));
+    }
+    @Test
+    public void subWorksWithNegativeResult() {
+        double resultSub = mCalculator.sub(1d, 17d);
+        assertThat(resultSub, is(equalTo(-16d)));
+    }
+    @Test
+    public void mulTwoNumbers() {
+        double resultMul = mCalculator.mul(32d, 2d);
+        assertThat(resultMul, is(equalTo(64d)));
+    }
+    @Test
+    public void divTwoNumbers() {
+        double resultDiv = mCalculator.div(32d,2d);
+        assertThat(resultDiv, is(equalTo(16d)));
+    }
+    @Test
+    public void divTwoNumbersZero() {
+        double resultDiv = mCalculator.div(32d,0);
+        assertThat(resultDiv, is(equalTo(Double.POSITIVE_INFINITY)));
+    }
 }
