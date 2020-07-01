@@ -24,6 +24,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -58,5 +59,28 @@ public class CalculatorTest {
 
         // assertion must evaluate TRUE to pass test
         assertThat(resultAdd, is(equalTo(2d)));
+    }
+
+    // general rule is to add one unit test for each assertion, they can be combined into a single @Test but then the
+    // results are obscured if only one assertion fails
+
+    @Test
+    public void addTwoNegativeNumbers() {
+
+        double resultAdd = mCalculator.add(-1d, 2d);
+
+        // assertThat is JUnit4, this method is used with "matchers"
+        // is(equalTo()) is a Hamcrest matcher
+        assertThat(resultAdd, is(equalTo(1d)));
+    }
+
+    @Test
+    public void addTwoNumbersFloats() {
+
+        // add() method takes doubles as input parameters, therefore floats are also acceptable
+        double resultAdd = mCalculator.add(1.111f, 1.111f);
+
+        // due to precision errors in they type conversion an error delta is required with closeTo()
+        assertThat(resultAdd, is(closeTo(2.222d, 0.01d)));
     }
 }
