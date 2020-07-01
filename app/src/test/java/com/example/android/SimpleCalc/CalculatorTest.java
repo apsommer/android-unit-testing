@@ -31,6 +31,20 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
 
 /**
+ * Summary:
+ * 
+ * Local unit tests use the JVM of your local machine. They don't use the Android framework.
+ * Unit tests are written with JUnit, a common unit testing framework for Java.
+ * JUnit tests are located in the (test) folder in the Android Studio Project > Android pane.
+ * Local unit tests only need these packages: org.junit, org.hamcrest, and android.test.
+ * The @RunWith(JUnit4.class) annotation tells the test runner to run tests in this class.
+ * @SmallTest, @MediumTest, and @LargeTest annotations are conventions that make it easier to bundle similar groups of tests
+ * The @SmallTest annotation indicates all the tests in a class are unit tests that have no dependencies and run in milliseconds.
+ * Instrumented tests are tests that run on an Android-powered device or emulator. Instrumented tests have access to the Android framework.
+ * A test runner is a library or set of tools that enables testing to occur and the results to be printed to the log.
+ */
+
+/**
  * JUnit4 unit tests for the calculator logic. These are local unit tests; no device needed
  */
 @RunWith(JUnit4.class) // define the test runner, JUnit4 is the default runner for Android Studio projects
@@ -122,5 +136,6 @@ public class CalculatorTest {
         Object o = emptyList.get(0);
     }
 
-    // todo add Mockito library and use it for unit testing
+    // todo add Mockito library and use it to create a test class for one of the button methods
+    //  Mockito can provides a simulated Android context in which the test will run
 }
