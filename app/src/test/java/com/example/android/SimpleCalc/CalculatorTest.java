@@ -22,6 +22,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.util.ArrayList;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.number.IsCloseTo.closeTo;
@@ -108,7 +111,16 @@ public class CalculatorTest {
     }
     @Test
     public void divTwoNumbersZero() {
-        double resultDiv = mCalculator.div(32d,0);
+        double resultDiv = mCalculator.div(32d, 0);
         assertThat(resultDiv, is(equalTo(Double.POSITIVE_INFINITY)));
     }
+
+    // verify that an expected exception is thrown
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void throwException() {
+        ArrayList emptyList = new ArrayList();
+        Object o = emptyList.get(0);
+    }
+
+    // todo add Mockito library and use it for unit testing
 }
